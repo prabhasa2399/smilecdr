@@ -1,0 +1,74 @@
+<style>
+   table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-left:20%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.active-pink-2 input[type=search]:focus:not([readonly]) {
+border-bottom: 1px solid #f48fb1;
+box-shadow: 0 1px 0 0 #f48fb1;
+}
+
+.active-pink input[type=search] {
+border-bottom: 1px solid #f48fb1;
+box-shadow: 0 1px 0 0 #f48fb1;
+}
+
+.active-purple-2 input[type=search]:focus:not([readonly]) {
+border-bottom: 1px solid #ce93d8;
+box-shadow: 0 1px 0 0 #ce93d8;
+}
+
+.active-purple input[type=search] {
+border-bottom: 1px solid #ce93d8;
+box-shadow: 0 1px 0 0 #ce93d8;
+}
+
+.active-cyan-2 input[type=search]:focus:not([readonly]) {
+border-bottom: 1px solid #4dd0e1;
+box-shadow: 0 1px 0 0 #4dd0e1;
+}
+
+.active-cyan input[type=search] {
+border-bottom: 1px solid #4dd0e1;
+box-shadow: 0 1px 0 0 #4dd0e1;
+}
+</style>
+
+<h2 style="margin-left:35%;">Patients</h2>
+<!-- Search form -->
+<form class="form-inline waves-light" style="margin-left:35%;margin-bottom:10px;" mdbWavesEffect>
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+  <button mdbBtn size="sm" gradient="aqua" rounded="true" class="my-0 waves-light" mdbWavesEffect type="submit">Search</button>
+</form>
+<table>
+    <tr>
+    <th>Id</th>
+    <th>Gender</th>
+    <th>Birth Date</th>
+    </tr>
+    <tr *ngFor="let data of patients.entry">
+    <td>{{ data.resource.id }}</td>
+    <td>{{ data.resource.gender }}</td>
+    <td>{{ data.resource.birthDate }}</td>
+    </tr>
+</table>
+
+<h4 style="margin-left:5%;">Request On : {{requestTime | date:'yyyy/MM/dd h:mm:ss:SSS a'}}</h4>
+<h4 style="margin-left:5%;">Response On: {{outputTime | date:'yyyy/MM/dd h:mm:ss:SSS a'}}</h4>
